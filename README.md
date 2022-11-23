@@ -189,9 +189,9 @@ https://www.figma.com/file/rfvY5wnplsN9unbJhumQQR/Untitled?email=nat.caze%40gmai
 
 The url to your repository and to your deployed project
 
-[Client repository Link](https://github.com/screeeen/project-client)
+[Client repository Link](https://github.com/natcaze/Project3_client)
 
-[Server repository Link](https://github.com/screeeen/project-server)
+[Server repository Link](https://github.com/natcaze/Project3_server)
 
 [Deployed App Link](http://heroku.com)
 
