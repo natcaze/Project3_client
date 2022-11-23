@@ -108,6 +108,7 @@ Components:
 
 ```javascript
 {
+  name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   userProfile: { type: Schema.Types.ObjectId, ref:'User' },
@@ -150,21 +151,20 @@ Components:
 | ----------- | ---------------------- | ---------------------------- | -------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | GET         | `/auth/profile `       | Saved session                | 200            | 404          | Check if user is logged in and return profile page                                                                              |
 | POST        | `/auth/signup`         | {name, email, password}      | 201            | 404          | Checks if fields not empty (422) and user not exists (409), then create user with encrypted password, and store user in session |
-| POST        | `/auth/login`          | {username, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
+| POST        | `/auth/login`          | {email, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
 | POST        | `/auth/logout`         |                              | 204            | 400          | Logs out the user                                                                                                               |
-| GET         | `/api/tournaments`     |                              |                | 400          | Show all tournaments                                                                                                            |
-| GET         | `/api/tournaments/:id` |                              |                |              | Show specific tournament                                                                                                        |
-| POST        | `/api/tournaments`     | { name, img, players }       | 201            | 400          | Create and save a new tournament                                                                                                |
-| PUT         | `/api/tournaments/:id` | { name, img, players }       | 200            | 400          | edit tournament                                                                                                                 |
-| DELETE      | `/api/tournaments/:id` |                              | 201            | 400          | delete tournament                                                                                                               |
-| GET         | `/api/players/:id`     |                              |                |              | show specific player                                                                                                            |
-| POST        | `/api/players`         | { name, img, tournamentId }  | 200            | 404          | add player                                                                                                                      |
-| PUT         | `/api/players/:id`     | { name, img }                | 201            | 400          | edit player                                                                                                                     |
-| DELETE      | `/api/players/:id`     |                              | 200            | 400          | delete player                                                                                                                   |
-| GET         | `/api/games`           |                              | 201            | 400          | show games                                                                                                                      |
-| GET         | `/api/games/:id`       |                              |                |              | show specific game                                                                                                              |
-| POST        | `/api/games`           | {player1,player2,winner,img} |                |              | add game                                                                                                                        |
-| PUT         | `/api/games/:id`       | {winner,score}               |                |              | edit game                                                                                                                       |
+| GET         | `/api/cocktail`     |                              |                | 400          | Show one generated cocktail                                                                                                            |
+| GET         | `/api/cocktail/:id` |          {name, img, description}                    |                |              | Show details of generated cocktail                                                                                                         |
+| PUT        | `/user/edit-profile/:id`     | { name, password }       | 201            | 400          | Edit profile                                                                                               |
+| POST         | `/user/create-cocktail/:id` |   {name, img, description}    | 200            | 400          | Create cocktail                                                                                                                 |
+| PUT      | `/user/edit-cocktail/:id` |    {name, img, description}            | 201            | 400          | Edit cocktail                                                                                                               |
+| DELETE         | `/user/edit-cocktail/:id`     |                              |                |              | delete cocktail                                                                                                            |
+| GET        | `/user/favorite/:id`         |               | 200            | 404          | Show all favorites                                                                                                                      |
+| POST         | `/user/save-cocktail/:id`     |     {name, img, description}           | 201            | 400          | Save cocktail                                                                                                                     |
+| PUT      | `/user/edit-favorites/:id`     |                              | 200            | 400          | Edit favorites                                                                                                                   |
+| DELETE         | `/user/edit-favorites/:id`           |                              | 201            | 400          | Delete favorites                                                                                                                      |
+| GET         | `/auth/article`       |                              |                |              | show all articles                                                                                                             |
+| GET        | `/auth/article-details`           |        |                |              | Show articles details                                                                                                                        |
 
 <br>
 
