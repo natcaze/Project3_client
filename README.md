@@ -97,6 +97,9 @@ Components:
   - `articleService` :
     - `.getArticles()`
     - `.getDetailsArticles()`
+    - `.postArticles()`
+    - `.putArticle()`
+    - `.deleteArticle()`
 
 <br>
 
