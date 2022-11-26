@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route} from 'react-router-dom';
+
+import SignupPage from './pages/SignupPage';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import FavoritesPage from './pages/FavoritesPage';
+import EditProfilePage from './pages/EditProfilePage';
+import CreateArticle from './pages/CreateArticle';
+import ArticlesDetailsPage from './pages/ArticlesDetailsPage';
+import CreateCocktail from './pages/CreateCocktail';
+import ArtcilesPage from './pages/ArticlesDetailsPage';
+
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import CocktailCard from './components/CocktailCard';
+import Articles from './components/Articles';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  
     </div>
   );
 }
