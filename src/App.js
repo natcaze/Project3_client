@@ -6,6 +6,9 @@ import Articles from './pages/Articles';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ContactUs from './pages/ContactUs';
+import Favorites from './pages/Favorites';
+import EditProfile from './pages/EditProfile';
+import Creations from './pages/Creations';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -22,6 +25,9 @@ function App() {
     <Route path="/pages/login" element={<Login />} />
     <Route path="/pages/signup" element={<Signup />} />
     <Route path="/pages/contact" element={<ContactUs />} />
+    <Route path="/pages/favorites" element={<Favorites />} />
+    <Route path="/pages/edit-profile" element={<EditProfile />} />
+    <Route path="/pages/creations" element={<Creations />} />
     </Routes> 
     <Footer/>
     </div>
