@@ -4,23 +4,21 @@ import axios from 'axios';
 
 
 function Signup(props) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
-  const handleFirstName = (e) => setFirstName(e.target.value);
-  const handleLastName = (e) => setLastName(e.target.value);
+  const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/pages/signup`, { firstName, lastName, email, password });
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, { name, email, password });
       navigate('/pages/cocktail');
     } catch (error) {
       const errorDescription = error.response.data.message;
@@ -31,11 +29,8 @@ function Signup(props) {
   return (
     <div>
       <form onSubmit={handleSignupSubmit}>
-        <label>First Name:</label>
-        <input type="text" name="firstName" value={firstName} onChange={handleFirstName} />
-
-        <label>Last Name:</label>
-        <input type="text" name="lastName" value={lastName} onChange={handleLastName} />
+        <label>Name:</label>
+        <input type="text" name="name" value={name} onChange={handleName} />
 
         <label>E-mail:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />

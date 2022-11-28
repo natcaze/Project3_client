@@ -21,16 +21,16 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/pages/cocktail" element={<Cocktail />} />
-        <Route path="/pages/articles" element={<Articles />} />
-        <Route path="/pages/login" element={<Login />} />
-        <Route path="/pages/signup" element={<Signup />} />
-        <Route path="/pages/contact" element={<ContactUs />} />
-        <Route path="/pages/favorites" element={<Favorites />} />
-        <Route path="/pages/edit-profile" element={<EditProfile />} />
-        <Route path="/pages/creations" element={<Creations />} />
-        <Route path="/pages/create-cocktail" element={<CreateCocktail />} />
-        <Route path="/pages/create-article" element={<CreateArticle />} />
+        <Route path="/api/cocktail" element={<Cocktail />} />
+        <Route path="/article/all-articles" element={<Articles />} />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/user/favorites" element={<Favorites />} />
+        <Route path="/user/edit-profile" element={<EditProfile />} />
+        <Route path="/user/creations" element={<Creations />} />
+        <Route path="/cocktail/create-cocktail" element={<CreateCocktail />} />
+        <Route path="/article/create-article" element={<CreateArticle />} />
       </Routes>
       <Footer />
     </div>

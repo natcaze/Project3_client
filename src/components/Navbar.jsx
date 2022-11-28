@@ -12,7 +12,7 @@ function Navbar() {
         <Link to="/pages/cocktail">COCKTAIL</Link>
         <Link to="/pages/articles">ARTICLES</Link>
 
-        {!loggedIn && (
+        {loggedIn && (
           <>
             <Link to="/pages/favorites">FAVORITES</Link>
             <Link to="/pages/edit-profile">PROFILE </Link>
@@ -23,7 +23,7 @@ function Navbar() {
           </>
         )}
 
-        {loggedIn && (
+        {!loggedIn && (
           <>
             <Link to="/pages/login">LOGIN</Link>
             <Link to="/pages/signup">SIGN UP</Link>
