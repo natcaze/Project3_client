@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div>
         <p>Created by Gabriela Meirelles and Nathalie Cazemajou</p>
-        <Link to='/pages/contact'>Contact Us </Link>
+        <Link to='/contact-us'>Contact Us </Link>
     </div>
   )
 }

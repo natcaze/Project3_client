@@ -9,14 +9,14 @@ function Navbar() {
     <div>
       <nav>
         <Link to="/">HOME</Link>
-        <Link to="/pages/cocktail">COCKTAIL</Link>
-        <Link to="/pages/articles">ARTICLES</Link>
+        <Link to="/api/generated-cocktail">COCKTAIL</Link>
+        <Link to="/article/all-articles">ARTICLES</Link>
 
         {loggedIn && (
           <>
-            <Link to="/pages/favorites">FAVORITES</Link>
-            <Link to="/pages/edit-profile">PROFILE </Link>
-            <Link to="/pages/creations">CREATIONS</Link>
+            <Link to="/user/favorites">FAVORITES</Link>
+            <Link to="/user/edit-profile">PROFILE </Link>
+            <Link to="/user/creations">CREATIONS</Link>
             <Link to="/" onClick={logout}>
               LOG OUT
             </Link>
@@ -25,8 +25,8 @@ function Navbar() {
 
         {!loggedIn && (
           <>
-            <Link to="/pages/login">LOGIN</Link>
-            <Link to="/pages/signup">SIGN UP</Link>
+            <Link to="/auth/login">LOGIN</Link>
+            <Link to="/auth/signup">SIGN UP</Link>
           </>
         )}
       </nav>
