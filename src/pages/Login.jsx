@@ -23,7 +23,7 @@ function Login(props) {
 
       authenticateUser();
 
-      navigate('/');
+      navigate('/pages/cocktail');
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

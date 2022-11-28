@@ -1,9 +1,9 @@
 import React from 'react'
 
-function CocktailPage() {
+function Cocktail() {
   return (
     <div>CocktailPage</div>
   )
 }
 
-export default CocktailPage
+export default Cocktail

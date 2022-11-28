@@ -21,7 +21,7 @@ function Signup(props) {
     e.preventDefault();
     try {
       await axios.post(`${process.env.REACT_APP_API_URL}/pages/signup`, { firstName, lastName, email, password });
-      navigate('/pages/login');
+      navigate('/pages/cocktail');
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

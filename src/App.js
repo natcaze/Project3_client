@@ -1,13 +1,13 @@
 import './App.css';
-import HomePage from './pages/HomePage';
-import CocktailPage from './pages/CocktailPage';
-import ArticlesPage from './pages/ArticlesPage';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-
 import { Routes, Route } from 'react-router-dom';
-
+import Home from './pages/Home';
+import Cocktail from './pages/Cocktail';
+import Articles from './pages/Articles';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ContactUs from './pages/ContactUs';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 
@@ -16,12 +16,14 @@ function App() {
     <div>
     <Navbar/>
      <Routes>
-    <Route path="/" element={<HomePage />} />
-    <Route path="/pages/cocktail" element={<CocktailPage />} />
-    <Route path="/pages/articles" element={<ArticlesPage />} />
-    <Route path="/pages/login" element={<LoginPage />} />
-    <Route path="/pages/signup" element={<SignupPage />} />
+    <Route path="/" element={<Home />} />
+    <Route path="/pages/cocktail" element={<Cocktail />} />
+    <Route path="/pages/articles" element={<Articles />} />
+    <Route path="/pages/login" element={<Login />} />
+    <Route path="/pages/signup" element={<Signup />} />
+    <Route path="/pages/contact" element={<ContactUs />} />
     </Routes> 
+    <Footer/>
     </div>
 
   );
