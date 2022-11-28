@@ -19,7 +19,7 @@ function CreateArticle() {
 
   const getArticle = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`);
 
       setTitle(response.data.title);
       setSubTitle(response.data.subTitle);
@@ -40,7 +40,7 @@ function CreateArticle() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`,
+      await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`,
         {title, subTitle, image, description});
 
         setTitle('');
@@ -60,7 +60,7 @@ function CreateArticle() {
 
       const deleteArticle = async () => {
         try {
-          await axios.delete(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`);
+          await axios.delete(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`);
           navigate(`/user/creations`);
         } catch (error) {
           console.log(error);
@@ -69,7 +69,7 @@ function CreateArticle() {
 
   return (
     <div>
-      <h3>CREATE ARTICLE</h3>
+      <h3>EDIT ARTICLE</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"> TITLE </label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
@@ -80,7 +80,7 @@ function CreateArticle() {
         <label htmlFor="image"> IMAGE </label>
         <input type="text" name="image" value={image} onChange={handleImage}/>
        
-        <button type="submit">ADD</button>
+        <button type="submit">SAVE CHANGES</button>
       </form>
       <button onClick={deleteArticle}>DELETE COCKTAIL</button>
     </div>
