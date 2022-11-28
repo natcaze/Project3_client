@@ -1,26 +1,26 @@
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
-
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import FavoritesPage from './pages/FavoritesPage';
-import EditProfilePage from './pages/EditProfilePage';
-import CreateArticle from './pages/CreateArticle';
-import ArticlesDetailsPage from './pages/ArticlesDetailsPage';
-import CreateCocktail from './pages/CreateCocktail';
-import ArtcilesPage from './pages/ArticlesDetailsPage';
-
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import CocktailCard from './components/CocktailCard';
-import Articles from './components/Articles';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import CocktailPage from './pages/CocktailPage';
+import ArticlesPage from './pages/ArticlesPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+
 
 function App() {
   return (
-    <div className="App">
-  
+    <div>
+    <Navbar/>
+     <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/pages/cocktail" element={<CocktailPage />} />
+    <Route path="/pages/articles" element={<ArticlesPage />} />
+    <Route path="/pages/login" element={<LoginPage />} />
+    <Route path="/pages/signup" element={<SignupPage />} />
+    </Routes> 
     </div>
+
   );
 }
 
