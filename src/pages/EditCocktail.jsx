@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
 function EditCocktail() {
     const [cocktailName, setCocktailName] = useState('');
@@ -53,7 +52,7 @@ function EditCocktail() {
             navigate(`/user/creations`);
 
         } catch (error){
-          console.log(error)
+          console(error)
           }
         };
 
