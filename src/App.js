@@ -1,11 +1,14 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CocktailPage from './pages/CocktailPage';
 import ArticlesPage from './pages/ArticlesPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+
+import { Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+
 
 
 function App() {
