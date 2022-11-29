@@ -1,12 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 function Creations() {
   const [creations, setCreations] = useState([]);
-  /* const { cocktailId } = useParams(); */
 
   const getCocktailCreated = async () => {
     try {
@@ -18,7 +16,6 @@ function Creations() {
       );
 
       setCreations(response.data);
-
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -42,12 +39,11 @@ function Creations() {
       {creations.map((creation) => {
         return (
           <div key={creation._id}>
-            <p>{creation.strGlass}</p>
+            <p>{creation.cocktailName}</p>
+            
 
             <form action="/user/edit-cocktail">
-              <button class="button-28" type="submit">
-                EDIT
-              </button>
+              <button type="submit">EDIT</button>
             </form>
           </div>
         );
