@@ -19,7 +19,9 @@ function CreateArticle() {
 
   const getArticle = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`);
+      const storedToken = localStorage.getItem('authToken');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` }});
 
       setTitle(response.data.title);
       setSubTitle(response.data.subTitle);
@@ -40,8 +42,9 @@ function CreateArticle() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const storedToken = localStorage.getItem('authToken');
       await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`,
-        {title, subTitle, image, description});
+        {title, subTitle, image, description}, { headers: { Authorization: `Bearer ${storedToken}` }});
 
         setTitle('');
         setSubTitle('');
@@ -60,7 +63,9 @@ function CreateArticle() {
 
       const deleteArticle = async () => {
         try {
-          await axios.delete(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`);
+          const storedToken = localStorage.getItem('authToken');
+          await axios.delete(`${process.env.REACT_APP_API_URL}/user/edit-article/${userId}`,
+          { headers: { Authorization: `Bearer ${storedToken}` }});
           navigate(`/user/creations`);
         } catch (error) {
           console.log(error);

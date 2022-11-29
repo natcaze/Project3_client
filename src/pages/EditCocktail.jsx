@@ -19,7 +19,10 @@ function EditCocktail() {
 
     const getCocktail = async () => {
         try {
-          const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-cocktail/${cocktailId}`);
+          const storedToken = localStorage.getItem('authToken');
+
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-cocktail/${cocktailId}`,
+          { headers: { Authorization: `Bearer ${storedToken}` }});
 
           setCocktailName(response.data.cocktailName);
           setDescription(response.data.description);
@@ -40,8 +43,9 @@ function EditCocktail() {
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+          const storedToken = localStorage.getItem('authToken');
           await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-cocktail/${cocktailId}`,
-            {cocktailName, description, ingredients, image});
+            {cocktailName, description, ingredients, image}, { headers: { Authorization: `Bearer ${storedToken}` }});
 
             setCocktailName('');
             setDescription('');
@@ -60,7 +64,9 @@ function EditCocktail() {
     
           const deleteCocktail = async () => {
             try {
-              await axios.delete(`${process.env.REACT_APP_API_URL}/user/edit-cocktail/${cocktailId}`);
+              const storedToken = localStorage.getItem('authToken');
+              await axios.delete(`${process.env.REACT_APP_API_URL}/user/edit-cocktail/${cocktailId}`, 
+              { headers: { Authorization: `Bearer ${storedToken}` }});
               navigate(`/user/creations`);
             } catch (error) {
               console.log(error);

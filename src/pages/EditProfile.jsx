@@ -16,7 +16,9 @@ function EditProfile() {
 
   const getProfile = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-profile/${userId}`);
+      const storedToken = localStorage.getItem('authToken');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/edit-profile/${userId}`,
+      { headers: { Authorization: `Bearer ${storedToken}` }});
       setName(response.data.name);
       setEmail(response.data.email)
       setPassword(response.data.password);
@@ -33,7 +35,9 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-profile/${userId}`, { name, email, password });
+      const storedToken = localStorage.getItem('authToken');
+      await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-profile/${userId}`, { name, email, password },
+      { headers: { Authorization: `Bearer ${storedToken}` }});
 
       setName('');
       setPassword('');

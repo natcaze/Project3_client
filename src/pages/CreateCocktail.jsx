@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
-function CreateCocktail(props) {
+function CreateCocktail() {
   const [cocktailName, setCocktailName] = useState('');
   const [description, setDescription] = useState('');
   const [ingredients, setIngredients] = useState('');
@@ -14,17 +15,23 @@ function CreateCocktail(props) {
   const handleIngredients = (e) => setIngredients (e.target.value);
   const handleImage = (e) => setImage(e.target.value);
 
+  const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/user/create-cocktail`, { cocktailName, description, ingredients, image});
+      const storedToken = localStorage.getItem('authToken');
+
+      await axios.post(`${process.env.REACT_APP_API_URL}/user/create-cocktail`, { cocktailName, description, ingredients, image}, 
+      { headers: { Authorization: `Bearer ${storedToken}` }}
+      );
 
       setCocktailName('')
       setDescription('')
       setIngredients('')
       setImage('')
 
-      props.refreshCocktail();
+      navigate(`/user/creations`);
     } catch (error) {
       console.log(error);
     }

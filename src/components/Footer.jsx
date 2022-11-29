@@ -14,7 +14,7 @@ function Footer() {
 }
 
 const StyledFooter = styled.footer`
-height: 6vh;
+height: 7vh;
 background-color: #676FA3;
 display: flex;
 align-items: center;

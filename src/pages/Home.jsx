@@ -3,11 +3,12 @@ import Cocktail from './Cocktail'
 import {StyledButton} from '../components/styled/Button.styled'
 import styled from "styled-components";
 import home from "../assets/home.png";
-import {StyledPosition} from '../components/styled/Position.styled'
+/* import {StyledPosition} from '../components/styled/Position.styled' */
 
 function HomePage() {
   return (
-    <StyledPosition>
+/*     <StyledPosition> */
+<div>
       <StyledBackground>
         <span>TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE MOST AND WILL TELL YOU WHAT DO YOU WILL TRY</span>
         <div>
@@ -18,12 +19,14 @@ function HomePage() {
       <div>
         <img className="imgHome" src={home} alt="" />
       </div>
-    </StyledPosition>
+
+</div>
+/*     </StyledPosition> */
   )
 }
 
 const StyledBackground = styled.div`
-height: 80vh;
+height: 81vh;
 width: 30vw;
 background-color: #F49D1A;
 padding-top: 2rem;
@@ -32,6 +35,7 @@ text-align: center;
 span{
   color:white;
   font-size: 1.5rem;
+  margin-left: ;
 }
 
 div{

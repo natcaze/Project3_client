@@ -19,7 +19,10 @@ function CreateArticle(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`, { title, subTitle, image, description });
+      const storedToken = localStorage.getItem('authToken');
+
+      await axios.post(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`, { title, subTitle, image, description },
+      { headers: { Authorization: `Bearer ${storedToken}` }});
 
       setTitle('');
       setSubTitle('');

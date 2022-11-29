@@ -4,10 +4,10 @@ function Creations() {
   return (
     <div>
       <h3>MY CREATTIONS</h3>
-      <form action="/pages/create-cocktail">
+      <form action="/user/create-cocktail">
         <button type="submit">ADD COCKTAIL</button>
       </form>
-      <form action="/pages/create-article">
+      <form action="/user/create-article">
         <button type="submit">ADD ARTICLE</button>
       </form>
     </div>
