@@ -1,16 +1,16 @@
 import React from "react";
-import { useState } from 'react';
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function CreateArticle() {
-  const [title, setTitle] = useState('');
-  const [subTitle, setSubTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [recipe, setRecipe] = useState("");
+  const [img, setImage] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleTitle = (e) => setTitle(e.target.value);
-  const handleSubTitle = (e) => setSubTitle (e.target.value);
+  const handleRecipe = (e) => setRecipe(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
 
@@ -19,15 +19,18 @@ function CreateArticle() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const storedToken = localStorage.getItem('authToken');
+      const storedToken = localStorage.getItem("authToken");
 
-      await axios.post(`${process.env.REACT_APP_API_URL}/article/create-article`, { title, subTitle, image, description },
-      { headers: { Authorization: `Bearer ${storedToken}` }});
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/article/create-article`,
+        { title, description, recipe, img },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      );
 
-      setTitle('');
-      setSubTitle('');
-      setImage('');
-      setDescription('');
+      setTitle("");
+      setRecipe("");
+      setImage("");
+      setDescription("");
 
       navigate(`/user/creations`);
     } catch (error) {
@@ -41,13 +44,23 @@ function CreateArticle() {
       <form onSubmit={handleSubmit}>
         <label htmlFor="title"> TITLE </label>
         <input type="text" name="title" value={title} onChange={handleTitle} />
-        <label htmlFor="subTitle"> SUBTITLE </label>
-        <input type="text" name="subTitle" value={subTitle} onChange={handleSubTitle}/>
+        <label htmlFor="recipe"> RECIPE </label>
+        <input
+          type="text"
+          name="recipe"
+          value={recipe}
+          onChange={handleRecipe}
+        />
         <label htmlFor="description"> DESCRIPTION </label>
-        <input type="text" name="description" value={description} onChange={handleDescription}/>
-        <label htmlFor="image"> IMAGE </label>
-        <input type="text" name="image" value={image} onChange={handleImage}/>
-       
+        <input
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleDescription}
+        />
+        <label htmlFor="img"> IMAGE </label>
+        <input type="text" name="img" value={img} onChange={handleImage} />
+
         <button type="submit">ADD</button>
       </form>
     </div>

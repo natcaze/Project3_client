@@ -31,7 +31,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/api/generated-cocktail" element={<Cocktail />} />
         <Route path="/user/create-cocktail" element={<CreateCocktail />} />
-        <Route path="/user/edit-cocktail" element={<EditCocktail />} />
+        <Route path="/user/edit-cocktail/:cocktailId" element={<EditCocktail />} />
 
         <Route path="/article/all-articles" element={<Articles />} />
         <Route path="/article/create-article" element={<CreateArticle />} />
