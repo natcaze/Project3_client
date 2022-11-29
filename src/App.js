@@ -15,13 +15,12 @@ import EditCocktail from "./pages/EditCocktail";
 
 import Favorites from "./pages/Favorites";
 import CreateFavorites from "./pages/CreateFavorites";
-import EditFavorites from "./pages/EditFavorites"
+import EditFavorites from "./pages/EditFavorites";
 
 import Creations from "./pages/Creations";
 import CreateArticle from "./pages/CreateArticle";
 import Articles from "./pages/Articles";
 import EditArticle from "./pages/EditArticle";
-
 
 function App() {
   return (
@@ -31,11 +30,17 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/api/generated-cocktail" element={<Cocktail />} />
         <Route path="/user/create-cocktail" element={<CreateCocktail />} />
-        <Route path="/user/edit-cocktail/:cocktailId" element={<EditCocktail />} />
+        <Route
+          path="/user/edit-cocktail/:cocktailId"
+          element={<EditCocktail />}
+        />
 
         <Route path="/article/all-articles" element={<Articles />} />
         <Route path="/article/create-article" element={<CreateArticle />} />
-        <Route path="/article/edit-article" element={<EditArticle />} />
+        <Route
+          path="/article/edit-article/:articleId"
+          element={<EditArticle />}
+        />
 
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/signup" element={<Signup />} />

@@ -9,6 +9,8 @@ function Creations() {
   const [creations, setCreations] = useState([]);
   const { user } = useContext(AuthContext);
 
+  const [creationsArticle, setCreationsArticle] = useState([]);
+
   const getCocktailCreated = async () => {
     try {
       const storedToken = localStorage.getItem("authToken");
@@ -25,8 +27,28 @@ function Creations() {
     }
   };
 
+  const getArticleCreated = async () => {
+    try {
+      const storedToken = localStorage.getItem("authToken");
+
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/creations/${user._id}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      );
+
+      setCreationsArticle(response.data.createdArticles);
+      console.log(response.data.createdArticles);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getCocktailCreated();
+  }, [user]);
+
+  useEffect(() => {
+    getArticleCreated();
   }, [user]);
 
   return (
@@ -47,6 +69,17 @@ function Creations() {
               <p>{creation.strDrink}</p>
 
               <Link to={`/user/edit-cocktail/${creation._id}`}>EDIT</Link>
+            </div>
+          );
+        })}
+
+      {creationsArticle &&
+        creationsArticle.map((creationArticle) => {
+          return (
+            <div key={creationArticle._id}>
+              <p>{creationArticle.title}</p>
+
+              <Link to={`/user/edit-article/${creationArticle._id}`}>EDIT</Link>
             </div>
           );
         })}
