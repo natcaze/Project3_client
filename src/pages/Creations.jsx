@@ -21,6 +21,7 @@ function Creations() {
       );
 
       setCreations(response.data.createdCocktails);
+
       console.log(response.data.createdCocktails);
     } catch (error) {
       console.log(error);
