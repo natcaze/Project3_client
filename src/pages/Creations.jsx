@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 
 function Creations() {
   const [creations, setCreations] = useState([]);
-  const { user } = useContext(AuthContext);
-
   const [creationsArticle, setCreationsArticle] = useState([]);
+
+  const { user } = useContext(AuthContext);
 
   const getCocktailCreated = async () => {
     try {

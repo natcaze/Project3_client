@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup(props) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -18,8 +17,12 @@ function Signup(props) {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, { name, email, password });
-      navigate('/pages/cocktail');
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
+        name,
+        email,
+        password,
+      });
+      navigate("/api/generated-cocktail");
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
@@ -36,7 +39,12 @@ function Signup(props) {
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
 
         <button type="submit">Sign Up</button>
       </form>
@@ -44,7 +52,7 @@ function Signup(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Already have account?</p>
-      <Link to="/pages/login"> Login</Link>
+      <Link to={"/auth/login"}>LOGIN</Link>
     </div>
   );
 }
