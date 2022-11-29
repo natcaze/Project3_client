@@ -1,27 +1,29 @@
 import React from 'react'
 import Cocktail from './Cocktail'
 import {StyledButton} from '../components/styled/Button.styled'
+import {StyledPositionHome} from '../components/styled/PositionHome.styled'
 import styled from "styled-components";
 import home from "../assets/home.png";
-/* import {StyledPosition} from '../components/styled/Position.styled' */
+
 
 function HomePage() {
   return (
-/*     <StyledPosition> */
-<div>
+    <div>
+    <StyledPositionHome>
       <StyledBackground>
+      <div>
         <span>TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE MOST AND WILL TELL YOU WHAT DO YOU WILL TRY</span>
         <div>
         <StyledButton onClick={<Cocktail/>}><p>CHOOSE A DRINK</p></StyledButton>
         <StyledButton primary onClick={<Cocktail/>}><p>RANDOM DRINK</p></StyledButton>
         </div>
+        </div>
       </StyledBackground>
       <div>
         <img className="imgHome" src={home} alt="" />
       </div>
-
-</div>
-/*     </StyledPosition> */
+      </StyledPositionHome>
+    </div>
   )
 }
 
@@ -35,7 +37,7 @@ text-align: center;
 span{
   color:white;
   font-size: 1.5rem;
-  margin-left: ;
+  margin-left:0;
 }
 
 div{

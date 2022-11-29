@@ -1,27 +1,27 @@
 import React from "react";
 import { useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
-function CreateArticle(props) {
+function CreateArticle() {
   const [title, setTitle] = useState('');
   const [subTitle, setSubTitle] = useState('');
   const [image, setImage] = useState('');
   const [description, setDescription] = useState('');
-
-  const { userId } = useParams();
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleSubTitle = (e) => setSubTitle (e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleImage = (e) => setImage(e.target.value);
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const storedToken = localStorage.getItem('authToken');
 
-      await axios.post(`${process.env.REACT_APP_API_URL}/user/create-article/${userId}`, { title, subTitle, image, description },
+      await axios.post(`${process.env.REACT_APP_API_URL}/article/create-article`, { title, subTitle, image, description },
       { headers: { Authorization: `Bearer ${storedToken}` }});
 
       setTitle('');
@@ -29,7 +29,7 @@ function CreateArticle(props) {
       setImage('');
       setDescription('');
 
-      props.refreshArticles();
+      navigate(`/user/creations`);
     } catch (error) {
       console.log(error);
     }

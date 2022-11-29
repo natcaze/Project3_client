@@ -7,7 +7,7 @@ function Creations() {
       <form action="/user/create-cocktail">
         <button type="submit">ADD COCKTAIL</button>
       </form>
-      <form action="/user/create-article">
+      <form action="/article/create-article">
         <button type="submit">ADD ARTICLE</button>
       </form>
     </div>
