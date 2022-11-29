@@ -1,14 +1,14 @@
-import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contexts/auth.context';
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/auth.context";
 
 function EditProfile() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
@@ -17,11 +17,13 @@ function EditProfile() {
 
   const getProfile = async () => {
     try {
-      const storedToken = localStorage.getItem('authToken');
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user/profile/${user._id}`,
-      { headers: { Authorization: `Bearer ${storedToken}` }});
+      const storedToken = localStorage.getItem("authToken");
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/user/profile/${user._id}`,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      );
       setName(response.data.name);
-      setEmail(response.data.email)
+      setEmail(response.data.email);
       setPassword(response.data.password);
       console.log(response.data);
     } catch (error) {
@@ -36,14 +38,17 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const storedToken = localStorage.getItem('authToken');
-      await axios.put(`${process.env.REACT_APP_API_URL}/user/edit-profile/${user._id}`, { name, email, password },
-      { headers: { Authorization: `Bearer ${storedToken}` }});
+      const storedToken = localStorage.getItem("authToken");
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/user/edit-profile/${user._id}`,
+        { name, email, password },
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      );
 
-      setName('');
-      setPassword('');
+      setName("");
+      setPassword("");
 
-      navigate(`user/edit-profile`);
+      navigate(`/api/generated-cocktail`);
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +63,12 @@ function EditProfile() {
         <label htmlFor="email">EMAIL:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
         <label htmlFor="password">PASSWORD:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
 
         <button type="submit">EDIT PROFILE:</button>
       </form>
