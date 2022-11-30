@@ -1,7 +1,6 @@
 import React from "react";
 import Cocktail from "./Cocktail";
 import { StyledButton } from "../components/styled/Button.styled";
-import { StyledPositionHome } from "../components/styled/PositionHome.styled";
 import styled from "styled-components";
 import home from "../assets/home.png";
 import { StyledSection } from "../components/styled/Section.styled";
@@ -10,27 +9,25 @@ function HomePage() {
   return (
     <div>
       <StyledSection greenPastelColor>
-        <StyledPositionHome>
-          <StyledBackground>
-            <div>
-              <span>
-                TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE
-                MOST AND WILL TELL YOU WHAT DO YOU WILL TRY
-              </span>
-              <div>
-                <StyledButton onClick={<Cocktail />}>
-                  <p>CHOOSE A DRINK</p>
-                </StyledButton>
-                <StyledButton primary onClick={<Cocktail />}>
-                  <p>RANDOM DRINK</p>
-                </StyledButton>
-              </div>
-            </div>
-          </StyledBackground>
+        <StyledBackground>
           <div>
-            <img className="imgHome" src={home} alt="" />
+            <span>
+              TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE MOST
+              AND WILL TELL YOU WHAT DO YOU WILL TRY
+            </span>
+            <div>
+              <StyledButton onClick={<Cocktail />}>
+                <p>CHOOSE A DRINK</p>
+              </StyledButton>
+              <StyledButton primary onClick={<Cocktail />}>
+                <p>RANDOM DRINK</p>
+              </StyledButton>
+            </div>
           </div>
-        </StyledPositionHome>
+        </StyledBackground>
+        <div>
+          <img className="imgHome" src={home} alt="" />
+        </div>
       </StyledSection>
     </div>
   );
