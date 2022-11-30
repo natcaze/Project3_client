@@ -1,7 +1,12 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
+
 import { StyledSection } from "../components/styled/Section.styled";
+import { StyledOneCard } from "../components/styled/OneCard.styled";
+import { StyledButton } from "../components/styled/Button.styled";
+import carroselReto2 from "../assets/carroselReto2.png";
+import styled from "styled-components";
 
 function Signup(props) {
   const [name, setName] = useState("");
@@ -32,37 +37,51 @@ function Signup(props) {
 
   return (
     <div>
-      <StyledSection barbiePinkColor>
-        <form onSubmit={handleSignupSubmit}>
-          <label>Name:</label>
-          <input type="text" name="name" value={name} onChange={handleName} />
+      <StyledSection purpleColor>
+        <StyledOneCard pinkColor>
+          <div>
+            <form onSubmit={handleSignupSubmit}>
+              <label>NAME</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleName}
+              />
+              <label>EMAIL</label>
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleEmail}
+              />
 
-          <label>E-mail:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
+              <label>PASSWORD</label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handlePassword}
+              />
+              <br />
+              <StyledButton blueColor type="submit">
+                SIGN UP
+              </StyledButton>
+            </form>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <button type="submit">Sign Up</button>
-        </form>
-
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-        <p>Already have account?</p>
-        <Link to={"/auth/login"}>LOGIN</Link>
+            <p>ALREADY HAVE AN ACCOUNT?</p>
+            <Link to={"/auth/login"}>LOGIN</Link>
+          </div>
+        </StyledOneCard>
+        <StyledImg src={carroselReto2} alt="courossel" />
       </StyledSection>
     </div>
   );
 }
-
+const StyledImg = styled.img`
+  height: 84vh;
+  width: 22vw;
+`;
 export default Signup;

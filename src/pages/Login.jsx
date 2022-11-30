@@ -2,7 +2,12 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
+
 import { StyledSection } from "../components/styled/Section.styled";
+import { StyledOneCard } from "../components/styled/OneCard.styled";
+/* import { StyledButton } from "../components/styled/Button.styled"; */
+import carroselReto from "../assets/carroselReto.png";
+import styled from "styled-components";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -36,33 +41,44 @@ function Login(props) {
 
   return (
     <div>
-      <StyledSection yellowNeonColor>
-        <form onSubmit={handleLoginSubmit}>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
+      <StyledSection yellowColor>
+        <StyledOneCard orangeColor>
+          <form onSubmit={handleLoginSubmit}>
+            <label>EMAIL</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
+            <label>PASSWORD</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+            <br />
+            <button greenColor type="submit">
+              LOGIN
+            </button>
+            <br />
+          </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <button type="submit">Login</button>
-        </form>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-        <p>Don't have an account yet?</p>
-        <Link to={"/auth/signup"}>SIGN UP</Link>
+          <p>DON'T HAVE AN ACCOUNT YET?</p>
+          <Link to={"/auth/signup"}>SIGN UP</Link>
+        </StyledOneCard>
+        <StyledImg src={carroselReto} alt="courossel" />
       </StyledSection>
     </div>
   );
 }
+
+const StyledImg = styled.img`
+  height: 84vh;
+  width: 22vw;
+`;
 
 export default Login;

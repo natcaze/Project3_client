@@ -4,6 +4,7 @@ export const StyledButton = styled.div`
   background-color: white;
   border-radius: 20px;
   border-style: solid;
+  color: black;
   border-width: 0.7rem;
   width: 15vw;
   height: 5vh;

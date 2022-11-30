@@ -1,8 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
+
 import { StyledSection } from "../components/styled/Section.styled";
+import { StyledOneCard } from "../components/styled/OneCard.styled";
+import { StyledButton } from "../components/styled/Button.styled";
+import styled from "styled-components";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -55,23 +59,35 @@ function EditProfile() {
   return (
     <div>
       <StyledSection sunColor>
-        <h3>EDIT PROFILE</h3>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">NAME:</label>
-          <input type="text" name="name" value={name} onChange={handleName} />
-          <label htmlFor="email">EMAIL:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
+        <StyledOneCard yellowColor>
+          <StyledTitle>EDIT PROFILE</StyledTitle>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">NAME:</label>
+            <input type="text" name="name" value={name} onChange={handleName} />
+            <label htmlFor="email">EMAIL:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+            <br />
 
-          <button type="submit">EDIT PROFILE:</button>
-        </form>
+            <StyledButton purpleColor type="submit">
+              SAVE
+            </StyledButton>
+          </form>
+          <Link to={"/"}>DISCARD CHANGES</Link>
+        </StyledOneCard>
       </StyledSection>
     </div>
   );
 }
+
+const StyledTitle = styled.h3`
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+`;
 
 export default EditProfile;
