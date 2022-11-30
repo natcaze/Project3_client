@@ -6,14 +6,14 @@ import { AuthContext } from "../contexts/auth.context";
 function EditProfile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
 
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-  const handlePassword = (e) => setPassword(e.target.value);
+
 
   const getProfile = async () => {
     try {
@@ -24,7 +24,7 @@ function EditProfile() {
       );
       setName(response.data.name);
       setEmail(response.data.email);
-      setPassword(response.data.password);
+
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -41,12 +41,11 @@ function EditProfile() {
       const storedToken = localStorage.getItem("authToken");
       await axios.put(
         `${process.env.REACT_APP_API_URL}/user/edit-profile/${user._id}`,
-        { name, email, password },
+        { name, email },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
 
       setName("");
-      setPassword("");
 
       navigate(`/api/generated-cocktail`);
     } catch (error) {
@@ -62,13 +61,7 @@ function EditProfile() {
         <input type="text" name="name" value={name} onChange={handleName} />
         <label htmlFor="email">EMAIL:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-        <label htmlFor="password">PASSWORD:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+
 
         <button type="submit">EDIT PROFILE:</button>
       </form>

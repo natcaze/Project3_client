@@ -46,11 +46,9 @@ function Creations() {
 
   useEffect(() => {
     getCocktailCreated();
-  }, [user]);
-
-  useEffect(() => {
     getArticleCreated();
   }, [user]);
+
 
   return (
     <div>
@@ -78,6 +76,7 @@ function Creations() {
         creationsArticle.map((creationArticle) => {
           return (
             <div key={creationArticle._id}>
+              <img src={creationArticle.img} alt="default" />
               <p>{creationArticle.title}</p>
 
               <Link to={`/user/edit-article/${creationArticle._id}`}>EDIT</Link>
