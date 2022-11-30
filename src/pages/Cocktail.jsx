@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Cocktail() {
   const [cocktail, setCocktail] = useState(null);
-  const [ingredients, setIngredients] = useState(null);
+
   const getRandom = async () => {
     try {
       const response = await axios.get(
@@ -15,14 +15,27 @@ function Cocktail() {
       console.log(error);
     }
   };
-
-  const handleIngredients = (e) => setIngredients();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    /*     console.log(e.target.ingredients);
 
-    const checkedFilters = filter() */
+    const ingredientsCopy = [...e.target.ingredients];
+
+    const selectedIngredients = ingredientsCopy
+      .filter((ingredient) => ingredient.checked)
+      .map((ingredient) => ingredient.value);
+    console.log(selectedIngredients);
+
+    const response = await axios.get(
+      `${
+        process.env.REACT_APP_API_URL
+      }/api/generated-cocktail?${selectedIngredients
+        .map((n, index) => `ingredients[${index}]=${n}`)
+        .join("&")}`
+    );
+    setCocktail(response.data);
+
+    console.log(response.data);
+    /*  const checkedFilters = filter() */
   };
 
   return (
@@ -45,49 +58,19 @@ function Cocktail() {
             <h5>FILTER BY TYPE</h5>
             <div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Rum"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Rum" />
                 <label> Rum </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Vodka"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Vodka" />
                 <label> Vodka </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Gin"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Gin" />
                 <label> Gin </label>
               </div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Tequila"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Tequila" />
                 <label> Tequila </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Liqueur"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Liqueur" />
                 <label> Liqueur </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Others"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Others" />
                 <label> Others </label>
               </div>
             </div>
@@ -97,49 +80,19 @@ function Cocktail() {
             <h5>FILTER BY ALCOHOL</h5>
             <div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Rum"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Rum" />
                 <label> Rum </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Vodka"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Vodka" />
                 <label> Vodka </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Gin"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Gin" />
                 <label> Gin </label>
               </div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Tequila"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Tequila" />
                 <label> Tequila </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Liqueur"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Liqueur" />
                 <label> Liqueur </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Others"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Others" />
                 <label> Others </label>
               </div>
             </div>
@@ -149,49 +102,19 @@ function Cocktail() {
             <h5>FILTER BY INGREDIENTS</h5>
             <div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Rum"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Rum" />
                 <label> Rum </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Vodka"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Vodka" />
                 <label> Vodka </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Gin"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Gin" />
                 <label> Gin </label>
               </div>
               <div>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Tequila"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Tequila" />
                 <label> Tequila </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Liqueur"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Liqueur" />
                 <label> Liqueur </label>
-                <input
-                  type="checkbox"
-                  name="ingredients"
-                  value="Others"
-                  onChange={handleIngredients}
-                />
+                <input type="checkbox" name="ingredients" value="Others" />
                 <label> Others </label>
               </div>
             </div>
