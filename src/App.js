@@ -38,7 +38,7 @@ function App() {
         <Route path="/article/all-articles" element={<Articles />} />
         <Route path="/article/create-article" element={<CreateArticle />} />
         <Route
-          path="/article/edit-article/:articleId"
+          path="/user/edit-article/:articleId"
           element={<EditArticle />}
         />
 

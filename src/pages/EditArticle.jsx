@@ -26,9 +26,9 @@ function CreateArticle() {
       );
 
       setTitle(response.data.title);
-      setRecipe(response.data.subTitle);
-      setDescription(response.data.image);
-      setImage(response.data.description);
+      setRecipe(response.data.recipe);
+      setDescription(response.data.description);
+      setImage(response.data.image);
 
       console.log(response.data);
     } catch (error) {
@@ -45,7 +45,7 @@ function CreateArticle() {
     try {
       const storedToken = localStorage.getItem("authToken");
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/user/edit-article/${articleId}`,
+        `${process.env.REACT_APP_API_URL}/article/edit-article/${articleId}`,
         { title, recipe, img, description },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       );
