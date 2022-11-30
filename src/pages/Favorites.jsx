@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function Favorites() {
   return (
-    <div>Favorites</div>
-  )
+    <div>
+      <StyledSection babyBlueColor>Favorites</StyledSection>
+    </div>
+  );
 }
 
-export default Favorites
+export default Favorites;

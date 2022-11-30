@@ -8,28 +8,30 @@ function Navbar() {
   const { loggedIn, logout } = useContext(AuthContext);
   return (
     <div>
-    <StyledNavBar>
-      <nav>
-        <Link to="/">HOME</Link>
-        <Link to="/api/generated-cocktail">COCKTAIL</Link>
-        <Link to="/article/all-articles">ARTICLES</Link>
+      <StyledNavBar>
+        <nav>
+          <Link to="/">HOME</Link>
+          <Link to="/api/generated-cocktail">COCKTAIL</Link>
+          <Link to="/article/all-articles">ARTICLES</Link>
 
-        {loggedIn && (
-          <>
-            <Link to="/user/favorites">FAVORITES</Link>
-            <Link to="/user/edit-profile">PROFILE </Link>
-            <Link to="/user/creations">CREATIONS</Link>
-            <Link to="/" onClick={logout}>LOG OUT</Link>
-          </>
-        )}
+          {loggedIn && (
+            <>
+              <Link to="/user/favorites">FAVORITES</Link>
+              <Link to="/user/edit-profile">PROFILE </Link>
+              <Link to="/user/creations">CREATIONS</Link>
+              <Link to="/" onClick={logout}>
+                LOG OUT
+              </Link>
+            </>
+          )}
 
-        {!loggedIn && (
-          <>
-            <Link to="/auth/login">LOGIN</Link>
-            <Link to="/auth/signup">SIGN UP</Link>
-          </>
-        )}
-      </nav>
+          {!loggedIn && (
+            <>
+              <Link to="/auth/login">LOGIN</Link>
+              <Link to="/auth/signup">SIGN UP</Link>
+            </>
+          )}
+        </nav>
       </StyledNavBar>
     </div>
   );
@@ -37,12 +39,11 @@ function Navbar() {
 
 const StyledNavBar = styled.nav`
   height: 9vh;
-  background-color: #863A6F;
+  background-color: #5c434d;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0;
-
 
   a {
     text-decoration: none;

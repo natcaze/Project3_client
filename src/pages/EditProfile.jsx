@@ -2,18 +2,17 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function EditProfile() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
 
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleName = (e) => setName(e.target.value);
   const handleEmail = (e) => setEmail(e.target.value);
-
 
   const getProfile = async () => {
     try {
@@ -55,16 +54,22 @@ function EditProfile() {
 
   return (
     <div>
-      <h3>EDIT PROFILE</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">NAME:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
-        <label htmlFor="email">EMAIL:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <StyledSection sunColor>
+        <h3>EDIT PROFILE</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">NAME:</label>
+          <input type="text" name="name" value={name} onChange={handleName} />
+          <label htmlFor="email">EMAIL:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
 
-
-        <button type="submit">EDIT PROFILE:</button>
-      </form>
+          <button type="submit">EDIT PROFILE:</button>
+        </form>
+      </StyledSection>
     </div>
   );
 }

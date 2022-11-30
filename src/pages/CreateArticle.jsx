@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function CreateArticle() {
   const [title, setTitle] = useState("");
@@ -40,29 +41,36 @@ function CreateArticle() {
 
   return (
     <div>
-      <h3>CREATE ARTICLE</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title"> TITLE </label>
-        <input type="text" name="title" value={title} onChange={handleTitle} />
-        <label htmlFor="recipe"> RECIPE </label>
-        <input
-          type="text"
-          name="recipe"
-          value={recipe}
-          onChange={handleRecipe}
-        />
-        <label htmlFor="description"> DESCRIPTION </label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={handleDescription}
-        />
-        <label htmlFor="img"> IMAGE </label>
-        <input type="text" name="img" value={img} onChange={handleImage} />
+      <StyledSection redColor>
+        <h3>CREATE ARTICLE</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title"> TITLE </label>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={handleTitle}
+          />
+          <label htmlFor="recipe"> RECIPE </label>
+          <input
+            type="text"
+            name="recipe"
+            value={recipe}
+            onChange={handleRecipe}
+          />
+          <label htmlFor="description"> DESCRIPTION </label>
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={handleDescription}
+          />
+          <label htmlFor="img"> IMAGE </label>
+          <input type="text" name="img" value={img} onChange={handleImage} />
 
-        <button type="submit">ADD</button>
-      </form>
+          <button type="submit">ADD</button>
+        </form>
+      </StyledSection>
     </div>
   );
 }

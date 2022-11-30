@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { AuthContext } from "../contexts/auth.context";
 import { Link } from "react-router-dom";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function Creations() {
   const [creations, setCreations] = useState([]);
@@ -49,40 +50,43 @@ function Creations() {
     getArticleCreated();
   }, [user]);
 
-
   return (
     <div>
-      <h3>MY CREATIONS</h3>
-      <form action="/user/create-cocktail">
-        <button type="submit">ADD COCKTAIL</button>
-      </form>
-      <form action="/article/create-article">
-        <button type="submit">ADD ARTICLE</button>
-      </form>
+      <StyledSection beigeColor>
+        <h3>MY CREATIONS</h3>
+        <form action="/user/create-cocktail">
+          <button type="submit">ADD COCKTAIL</button>
+        </form>
+        <form action="/article/create-article">
+          <button type="submit">ADD ARTICLE</button>
+        </form>
 
-      {creations &&
-        creations.map((creation) => {
-          return (
-            <div key={creation._id}>
-              <img src={creation.strDrinkThumb} alt="default" />
-              <p>{creation.strDrink}</p>
+        {creations &&
+          creations.map((creation) => {
+            return (
+              <div key={creation._id}>
+                <img src={creation.strDrinkThumb} alt="default" />
+                <p>{creation.strDrink}</p>
 
-              <Link to={`/user/edit-cocktail/${creation._id}`}>EDIT</Link>
-            </div>
-          );
-        })}
+                <Link to={`/user/edit-cocktail/${creation._id}`}>EDIT</Link>
+              </div>
+            );
+          })}
 
-      {creationsArticle &&
-        creationsArticle.map((creationArticle) => {
-          return (
-            <div key={creationArticle._id}>
-              <img src={creationArticle.img} alt="default" />
-              <p>{creationArticle.title}</p>
+        {creationsArticle &&
+          creationsArticle.map((creationArticle) => {
+            return (
+              <div key={creationArticle._id}>
+                <img src={creationArticle.img} alt="default" />
+                <p>{creationArticle.title}</p>
 
-              <Link to={`/user/edit-article/${creationArticle._id}`}>EDIT</Link>
-            </div>
-          );
-        })}
+                <Link to={`/user/edit-article/${creationArticle._id}`}>
+                  EDIT
+                </Link>
+              </div>
+            );
+          })}
+      </StyledSection>
     </div>
   );
 }

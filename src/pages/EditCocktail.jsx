@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function EditCocktail() {
   const [cocktailName, setCocktailName] = useState("");
@@ -77,35 +78,42 @@ function EditCocktail() {
 
   return (
     <div>
-      <h3>EDIT COCKTAIL</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="cocktailName">COCKTAIL NAME</label>
-        <input
-          type="text"
-          name="cocktailName"
-          value={cocktailName}
-          onChange={handleCocktailName}
-        />
-        <label htmlFor="description">DESCRIPTION</label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={handleDescription}
-        />
-        <label htmlFor="ingredients">INGREDIENTS</label>
-        <input
-          type="text"
-          name="ingredients"
-          value={ingredients}
-          onChange={handleIngredients}
-        />
-        <label htmlFor="image">IMAGE</label>
-        <input type="text" name="image" value={image} onChange={handleImage} />
-        <button type="submit">EDIT COCKTAIL</button>
-      </form>
+      <StyledSection blueColor>
+        <h3>EDIT COCKTAIL</h3>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="cocktailName">COCKTAIL NAME</label>
+          <input
+            type="text"
+            name="cocktailName"
+            value={cocktailName}
+            onChange={handleCocktailName}
+          />
+          <label htmlFor="description">DESCRIPTION</label>
+          <input
+            type="text"
+            name="description"
+            value={description}
+            onChange={handleDescription}
+          />
+          <label htmlFor="ingredients">INGREDIENTS</label>
+          <input
+            type="text"
+            name="ingredients"
+            value={ingredients}
+            onChange={handleIngredients}
+          />
+          <label htmlFor="image">IMAGE</label>
+          <input
+            type="text"
+            name="image"
+            value={image}
+            onChange={handleImage}
+          />
+          <button type="submit">EDIT COCKTAIL</button>
+        </form>
 
-      <button onClick={deleteCocktail}>DELETE COCKTAIL</button>
+        <button onClick={deleteCocktail}>DELETE COCKTAIL</button>
+      </StyledSection>
     </div>
   );
 }

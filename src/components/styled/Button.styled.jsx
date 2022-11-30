@@ -7,14 +7,23 @@ export const StyledButton = styled.div`
   border-width: 0.7rem;
   width: 15vw;
   height: 5vh;
-  /* border-color:  ${(props) => (props.primary ? "#D23369" : "#5F8D4E")}; */
   border-color: ${(props) => {
-    if (props.primary) {
-      return "#D23369";
-    } else if (props.secundary) {
-      return "#5F8D4E";
-    } else {
-      return "#FFFFFF";
+    if (props.pinkColor) {
+      return "#EA047E";
+    } else if (props.orangeColor) {
+      return "#FF6D28";
+    } else if (props.yellowColor) {
+      return "#FCE700";
+    } else if (props.lightBlueColor) {
+      return "#00F5FF";
+    } else if (props.greenColor) {
+      return "#38E54D";
+    } else if (props.purpleColor) {
+      return "#9900F0";
+    } else if (props.redColor) {
+      return "#FF1E1E";
+    } else if (props.blueColor) {
+      return "#3E00FF";
     }
   }};
 

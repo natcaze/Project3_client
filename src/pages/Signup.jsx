@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function Signup(props) {
   const [name, setName] = useState("");
@@ -31,28 +32,35 @@ function Signup(props) {
 
   return (
     <div>
-      <form onSubmit={handleSignupSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+      <StyledSection barbiePinkColor>
+        <form onSubmit={handleSignupSubmit}>
+          <label>Name:</label>
+          <input type="text" name="name" value={name} onChange={handleName} />
 
-        <label>E-mail:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+          <label>E-mail:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
 
-        <button type="submit">Sign Up</button>
-      </form>
+          <button type="submit">Sign Up</button>
+        </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/auth/login"}>LOGIN</Link>
+        <p>Already have account?</p>
+        <Link to={"/auth/login"}>LOGIN</Link>
+      </StyledSection>
     </div>
   );
 }

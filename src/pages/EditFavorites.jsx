@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { StyledSection } from "../components/styled/Section.styled";
 
 function EditFavorites() {
   return (
-    <div>EditFavorites</div>
-  )
+    <div>
+      <StyledSection salmonColor>EditFavorites</StyledSection>
+    </div>
+  );
 }
 
-export default EditFavorites
+export default EditFavorites;
