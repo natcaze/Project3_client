@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledCard } from '../components/styled/Card.styled'
 import {StyledPositionCard} from '../components/styled/PositionCard.styled'
 import sazerac from "../assets/sazerac.png";
-import crantini from "../assets/Crantini.png";
+import crantini from "../assets/crantini.png";
 
 function ArticlesPage() {
   return (
