@@ -54,12 +54,14 @@ function Creations() {
     <div>
       <StyledSection beigeColor>
         <h3>MY CREATIONS</h3>
-        <form action="/user/create-cocktail">
+        {/*       <form action="/user/create-cocktail">
           <button type="submit">ADD COCKTAIL</button>
         </form>
         <form action="/article/create-article">
           <button type="submit">ADD ARTICLE</button>
-        </form>
+        </form> */}
+        <Link to={`/user/create-cocktail`}>ADD COCKTAIL</Link>
+        <Link to={`/article/create-article`}>ADD ARTICLE</Link>
 
         {creations &&
           creations.map((creation) => {
