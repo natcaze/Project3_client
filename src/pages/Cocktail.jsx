@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { StyledSection } from "../components/styled/Section.styled";
 import { StyledFilterCard } from "../components/styled/FilterCard.styled";
 import { StyledFilterOption } from "../components/styled/FilterOption.styled";
-
+import { StyledButton } from "../components/styled/Button.styled";
 import styled from "styled-components";
 
 function Cocktail() {
@@ -79,15 +79,19 @@ function Cocktail() {
                 </ul>
               </div>
             )}
-            <button onClick={getRandom}>RANDOM</button>
+            <StyledButton pinkColor onClick={getRandom}>
+              RANDOM
+            </StyledButton>
 
-            <button onClick={getFavorites}>SAVE</button>
+            <StyledButton lightBlueColor onClick={getFavorites}>
+              SAVE
+            </StyledButton>
           </div>
           <form onSubmit={handleSubmit}>
             <div>
               <StyledFilters>
                 <StyledFilterOption greenColor>
-                  <h5>FILTER BY ALCOHOOL</h5>
+                  <h5>FILTER BY ALCOHOL</h5>
                   <div>
                     <div>
                       <input type="checkbox" name="ingredients" value="Gin" />
@@ -257,7 +261,9 @@ function Cocktail() {
               </StyledFilters>
             </div>
 
-            <button type="submit">Choose</button>
+            <StyledButton redColor type="submit">
+              Choose
+            </StyledButton>
           </form>
         </StyledFilterCard>
       </StyledSection>
