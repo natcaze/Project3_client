@@ -3,9 +3,8 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
 
-import { StyledSection } from "../components/styled/Section.styled";
-import { StyledOneCard } from "../components/styled/OneCard.styled";
 import { StyledButton } from "../components/styled/Button.styled";
+import { StyledSectionArticle } from "../components/styled/SectionArticle.styled";
 import styled from "styled-components";
 
 function EditProfile() {
@@ -57,37 +56,33 @@ function EditProfile() {
   };
 
   return (
-    <div>
-      <StyledSection sunColor>
-        <StyledOneCard yellowColor>
-          <StyledTitle>EDIT PROFILE</StyledTitle>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">NAME:</label>
-            <input type="text" name="name" value={name} onChange={handleName} />
-            <label htmlFor="email">EMAIL:</label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleEmail}
-            />
-            <br />
+    <StyledProfile>
+      <StyledSectionArticle>
+        <h5>EDIT PROFILE</h5>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">NAME:</label>
+          <input type="text" name="name" value={name} onChange={handleName} />
+          <label htmlFor="email">EMAIL:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
+          <br />
 
-            <StyledButton purpleColor type="submit">
-              SAVE
-            </StyledButton>
-          </form>
-          <Link to={"/"}>DISCARD CHANGES</Link>
-        </StyledOneCard>
-      </StyledSection>
-    </div>
+          <StyledButton purpleColor type="submit">
+            SAVE
+          </StyledButton>
+        </form>
+        <Link to={"/"}>DISCARD CHANGES</Link>
+      </StyledSectionArticle>
+    </StyledProfile>
   );
 }
 
-const StyledTitle = styled.h3`
-  display: flex;
-  font-size: 2rem;
-  justify-content: center;
+const StyledProfile = styled.div`
+  height: 84vh;
 `;
 
 export default EditProfile;

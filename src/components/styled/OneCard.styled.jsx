@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const StyledOneCard = styled.div`
-  width: 20rem;
+  width: 90vw;
   height: 55rem;
   border-radius: 20px;
   margin-top: 2rem;
   margin-left: 1.25rem;
+  overflow-y: scroll;
+  text-align: center;
 
   background-color: ${(props) => {
     if (props.lightBlueColor) {
@@ -21,15 +23,16 @@ export const StyledOneCard = styled.div`
     width: 18rem;
     height: 20rem;
     border-radius: 20px;
-    margin-left: 1rem;
   }
 
   ul {
     text-align: justify;
-    margin: 2rem;
     list-style: none;
     align-items: center;
     color: #5c434d;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.1rem;
   }
 
   span {

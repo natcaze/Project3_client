@@ -18,6 +18,7 @@ function Cocktail() {
       );
       setCocktail(response.data[0]);
       console.log(response.data);
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +43,38 @@ function Cocktail() {
     setCocktail(response.data);
 
     console.log(response.data);
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   return (
     <StyledBackground>
+      {cocktail && (
+        <StyledOneCard lightBlueColor>
+          <br />
+          <StyledTitles orangeColor>
+            <h5>{cocktail.strDrink}</h5>
+          </StyledTitles>
+          <img src={cocktail.strDrinkThumb} alt="drink" />
+          <ul>
+            <li>
+              <span>CATEGORY:</span> {cocktail.strCategory}
+            </li>
+            <br />
+            <li>
+              <span>GLASS:</span> {cocktail.strGlass}
+            </li>
+            <br />
+            <li>
+              <span>INSTRUCTIONS:</span> {cocktail.strInstructions}
+            </li>
+            <br />
+            <li>
+              <span>INGREDIENTS:</span> {cocktail.strIngredient}
+            </li>
+          </ul>
+        </StyledOneCard>
+      )}
+      <br />
       <StyledFilterOption>
         <br />
         <form onSubmit={handleSubmit}>
@@ -152,33 +181,7 @@ function Cocktail() {
           RANDOM
         </StyledButton>
       </StyledDivButton>
-
-      {cocktail && (
-        <StyledOneCard lightBlueColor>
-          <br />
-          <StyledTitles orangeColor>
-            <h5>{cocktail.strDrink}</h5>
-          </StyledTitles>
-          <img src={cocktail.strDrinkThumb} alt="drink" />
-          <ul>
-            <li>
-              <span>CATEGORY:</span> {cocktail.strCategory}
-            </li>
-            <br />
-            <li>
-              <span>GLASS:</span> {cocktail.strGlass}
-            </li>
-            <br />
-            <li>
-              <span>INSTRUCTIONS:</span> {cocktail.strInstructions}
-            </li>
-            <br />
-            <li>
-              <span>INGREDIENTS:</span> {cocktail.strIngredient}
-            </li>
-          </ul>
-        </StyledOneCard>
-      )}
+      <br />
       <br />
     </StyledBackground>
   );
@@ -190,8 +193,9 @@ const StyledDivButton = styled.div`
   margin-top: 3rem;
 `;
 
-const StyledBackground = styled.body`
+const StyledBackground = styled.div`
   background-color: #cfdfea;
+  padding-top: 2rem;
 `;
 
 export default Cocktail;

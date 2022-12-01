@@ -13,7 +13,7 @@ function ArticlesPage() {
         <br />
         <StyledArticleCard pinkishColor>
           <br />
-          <StyledTitles>
+          <StyledTitles bronwColor>
             <h5>THE SAZERAC</h5>
           </StyledTitles>
           <div>
@@ -44,7 +44,7 @@ function ArticlesPage() {
         </StyledArticleCard>
         <br />
         <StyledArticleCard greenColor>
-          <StyledTitles>
+          <StyledTitles bronwColor>
             <h5>MEET THE CRANBERRY MARTINI</h5>
           </StyledTitles>
           <br />
@@ -85,7 +85,7 @@ function ArticlesPage() {
         <br />
         <StyledArticleCard yellowishColor>
           <br />
-          <StyledTitles>
+          <StyledTitles bronwColor>
             <h5>FOUR ESSENTIAL COCKTAIL GLASSES</h5>
           </StyledTitles>
           <div>

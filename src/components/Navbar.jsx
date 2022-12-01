@@ -43,8 +43,7 @@ const StyledNavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0;
-  display: flex;
-  justify-content: space-between;
+  max-width: 100vw;
 
   a {
     text-decoration: none;

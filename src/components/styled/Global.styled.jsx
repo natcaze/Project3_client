@@ -8,8 +8,9 @@ export const GlobalStyles = createGlobalStyle`
 body {
   padding: 0px;
   margin: 0px;
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
+  max-width: 100vw;
 }
 `;

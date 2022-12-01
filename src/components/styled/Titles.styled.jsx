@@ -16,6 +16,8 @@ export const StyledTitles = styled.h5`
         return "#579943";
       } else if (props.blueColor) {
         return "#EBB241";
+      } else if (props.bronwColor) {
+        return "#5c434d";
       }
     }};
   }

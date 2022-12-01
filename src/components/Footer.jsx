@@ -20,6 +20,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   justify-content: flex-end;
   padding-right: 2rem;
+  max-width: 100vw;
 
   a {
     text-decoration: none;
