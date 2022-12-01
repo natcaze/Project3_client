@@ -6,8 +6,7 @@ function Footer() {
   return (
     <div>
       <StyledFooter>
-        {/* <p>Created by Gabriela Meirelles and Nathalie Cazemajou</p> */}
-        <Link to="/contact-us">Contact Us </Link>
+        <Link to="/contact-us">CONTACT US</Link>
       </StyledFooter>
     </div>
   );
@@ -18,22 +17,19 @@ const StyledFooter = styled.footer`
   background-color: #37b5ff;
   display: flex;
   align-items: center;
- /*  position: fixed;
-  bottom: 0; */
-
-  p {
-    color: white;
-    margin-left: 1vh;
-  }
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
 
   a {
     text-decoration: none;
     color: white;
     margin-left: 10px;
+    font-size: 0.8rem;
   }
   a:hover,
   .active {
-    color: black;
+    color: #ea047e;
   }
 `;
 
