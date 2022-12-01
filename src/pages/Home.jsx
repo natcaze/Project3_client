@@ -1,5 +1,6 @@
 import React from "react";
 import Cocktail from "./Cocktail";
+import Articles from "./Articles";
 import { StyledButton } from "../components/styled/Button.styled";
 import styled from "styled-components";
 import home from "../assets/home.png";
@@ -16,11 +17,11 @@ function HomePage() {
               AND WILL TELL YOU WHAT DO YOU WILL TRY
             </span>
             <div>
-              <StyledButton onClick={<Cocktail />}>
+              <StyledButton pinkColor onClick={<Cocktail />}>
                 <p>CHOOSE A DRINK</p>
               </StyledButton>
-              <StyledButton primary onClick={<Cocktail />}>
-                <p>RANDOM DRINK</p>
+              <StyledButton orangeColor onClick={<Articles />}>
+                <p>READ MORE</p>
               </StyledButton>
             </div>
           </div>
@@ -34,9 +35,9 @@ function HomePage() {
 }
 
 const StyledBackground = styled.div`
-  height: 81vh;
+  height: 80.5vh;
   width: 30vw;
-  background-color: #f49d1a;
+  background-color: #3aa579;
   padding-top: 2rem;
   text-align: center;
 
