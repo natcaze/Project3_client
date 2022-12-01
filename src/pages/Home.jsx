@@ -4,7 +4,6 @@ import Articles from "./Articles";
 import { StyledButton } from "../components/styled/Button.styled";
 import styled from "styled-components";
 import drink from "../assets/drink.png";
-import { StyledSection } from "../components/styled/Section.styled";
 
 function HomePage() {
   return (
@@ -13,41 +12,49 @@ function HomePage() {
         <StyledImg src={drink} alt="" />
       </div>
       <br />
-      <StyledButtons>
-        <StyledButton pinkColor onClick={<Cocktail />}>
-          <p>CHOOSE A DRINK</p>
-        </StyledButton>
-
-        <StyledButton orangeColor onClick={<Articles />}>
-          <p>READ MORE</p>
-        </StyledButton>
-      </StyledButtons>
       <StyledBackground>
+        <br />
         <div>
+          <br />
           <span>
-            TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE MOST
-            AND WE WILL TELL YOU WHAT YOU CAN TRY
+            <br />
+            TELL US WHAT INGREDIENTS <br />
+            YOU HAVE IN YOUR FRIDGE
+            <br />
+            OR THAT YOU LIKE AND WE
+            <br /> WILL TELL YOU WHAT
+            <br /> YOU CAN TRY
+            <br />
           </span>
+          <br />
         </div>
+        <br />
+        <StyledButtons>
+          <StyledButton pinkColor onClick={<Cocktail />}>
+            <p>CHOOSE A DRINK</p>
+          </StyledButton>
+          <StyledButton orangeColor onClick={<Articles />}>
+            <p>READ MORE</p>
+          </StyledButton>
+        </StyledButtons>
+        <br /> <br />
       </StyledBackground>
     </div>
   );
 }
 
 const StyledBackground = styled.div`
-  height: 30vh;
+  height: 50vh;
   width: 100vw;
   background-color: #b93b3b;
- 
   text-align: center;
+  display: grid;
 
   span {
     text-indent: 50px;
     text-align: justify;
-    margin-left: 1rem;
-    margin-right: 1rem;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -60,6 +67,7 @@ const StyledImg = styled.img`
 const StyledButtons = styled.div`
   display: flex;
   justify-content: space-evenly;
+  background-color: #b93b3b;
 `;
 
 export default HomePage;
