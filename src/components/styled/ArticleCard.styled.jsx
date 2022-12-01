@@ -15,6 +15,7 @@ export const StyledArticleCard = styled.div`
   margin-right: 2rem;
   border-radius: 30px;
   width: 90vw;
+  /* teste */
 
   div {
     display: flex;
