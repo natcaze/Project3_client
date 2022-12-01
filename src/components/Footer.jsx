@@ -19,7 +19,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 1rem;
+  padding-right: 2rem;
 
   a {
     text-decoration: none;

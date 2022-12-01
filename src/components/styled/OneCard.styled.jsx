@@ -1,51 +1,38 @@
 import styled from "styled-components";
 
 export const StyledOneCard = styled.div`
-  color: #eff5f5;
-  background-color: #ff5757;
+  width: 20rem;
+  height: 55rem;
   border-radius: 20px;
-  border-style: solid;
-  border-width: 0.7rem;
-  width: 60vw;
-  height: 70vh;
-  border-color: ${(props) => {
-    if (props.pinkColor) {
-      return "#EA047E";
-    } else if (props.orangeColor) {
-      return "#FF6D28";
-    } else if (props.yellowColor) {
-      return "#FCE700";
+  margin-top: 2rem;
+  margin-left: 1.25rem;
+
+  background-color: ${(props) => {
+    if (props.lightBlueColor) {
+      return "#E4EFEC";
+    } else if (props.purpleColor) {
+      return "#AB55F7";
+    } else if (props.yellowishColor) {
+      return "#FCDE59";
     }
   }};
 
-  p {
-    text-align: center;
-  }
-
-  form {
-    display: grid;
-    justify-content: center;
-    margin-top: 10vh;
-    margin-bottom: 5vh;
-  }
-
-  input {
-    width: 50vw;
-    height: 4vh;
+  img {
+    width: 18rem;
+    height: 20rem;
     border-radius: 20px;
-    border: none;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    background-color: #eff5f5;
+    margin-left: 1rem;
   }
 
-  a {
-    color: #eff5f5;
-    text-decoration: none;
-    text-align: center;
+  ul {
+    text-align: justify;
+    margin: 2rem;
+    list-style: none;
+    align-items: center;
+    color: #5c434d;
   }
 
-  a:hover {
-    color: #ea047e;
+  span {
+    font-weight: bolder;
   }
 `;

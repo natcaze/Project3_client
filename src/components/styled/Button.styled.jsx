@@ -8,10 +8,10 @@ export const StyledButton = styled.button`
   border-width: 0.4rem;
   width: 9rem;
   height: 3rem;
-align-items: center;
-display: inline-flex;
-justify-content: center;
-flex-direction: row;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
 
   border-color: ${(props) => {
     if (props.pinkColor) {
@@ -21,7 +21,7 @@ flex-direction: row;
     } else if (props.yellowColor) {
       return "#FCE700";
     } else if (props.lightBlueColor) {
-      return "#00F5FF";
+      return "#CFDFEA";
     } else if (props.greenColor) {
       return "#38E54D";
     } else if (props.purpleColor) {
