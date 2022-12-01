@@ -16,7 +16,6 @@ function Navbar() {
 
           {loggedIn && (
             <>
-              <Link to="/user/favorites">FAVORITES</Link>
               <Link to="/user/edit-profile">PROFILE </Link>
               <Link to="/user/creations">CREATIONS</Link>
               <Link to="/" onClick={logout}>
@@ -44,6 +43,8 @@ const StyledNavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
 
   a {
     text-decoration: none;

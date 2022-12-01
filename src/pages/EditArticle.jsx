@@ -96,8 +96,6 @@ function CreateArticle() {
         />
         <label htmlFor="img"> IMAGE </label>
         <input type="text" name="img" value={img} onChange={handleImage} />
-
-        <button type="submit">SAVE CHANGES</button>
       </form>
       <button onClick={deleteArticle}>DELETE COCKTAIL</button>
     </div>

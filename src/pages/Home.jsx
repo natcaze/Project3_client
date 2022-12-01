@@ -14,7 +14,7 @@ function HomePage() {
           <div>
             <span>
               TELL US WHAT INGREDIENTS YOU HAVE IN YOUR FRIDGE OR LIKE THE MOST
-              AND WILL TELL YOU WHAT DO YOU WILL TRY
+              AND WE WILL TELL YOU WHAT YOU CAN TRY
             </span>
             <div>
               <StyledButton pinkColor onClick={<Cocktail />}>

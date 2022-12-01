@@ -13,10 +13,6 @@ import Cocktail from "./pages/Cocktail";
 import CreateCocktail from "./pages/CreateCocktail";
 import EditCocktail from "./pages/EditCocktail";
 
-import Favorites from "./pages/Favorites";
-import CreateFavorites from "./pages/CreateFavorites";
-import EditFavorites from "./pages/EditFavorites";
-
 import Creations from "./pages/Creations";
 import CreateArticle from "./pages/CreateArticle";
 import Articles from "./pages/Articles";
@@ -37,18 +33,12 @@ function App() {
 
         <Route path="/article/all-articles" element={<Articles />} />
         <Route path="/article/create-article" element={<CreateArticle />} />
-        <Route
-          path="/user/edit-article/:articleId"
-          element={<EditArticle />}
-        />
+        <Route path="/user/edit-article/:articleId" element={<EditArticle />} />
 
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/signup" element={<Signup />} />
 
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/user/favorites" element={<Favorites />} />
-        <Route path="/user/create-favorites" element={<CreateFavorites />} />
-        <Route path="/user/edit-favorites" element={<EditFavorites />} />
 
         <Route path="/user/edit-profile" element={<EditProfile />} />
         <Route path="/user/creations" element={<Creations />} />

@@ -10,24 +10,6 @@ import styled from "styled-components";
 
 function Cocktail() {
   const [cocktail, setCocktail] = useState(null);
-  const [favorites, setFavorites] = useState("");
-
-  const { cocktailId } = useParams();
-
-  const getFavorites = async () => {
-    try {
-      const storedToken = localStorage.getItem("authToken");
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/user/create-favorite/${cocktailId}`,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
-      );
-
-      setFavorites(response.data.title);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const getRandom = async () => {
     try {
@@ -81,10 +63,6 @@ function Cocktail() {
             )}
             <StyledButton pinkColor onClick={getRandom}>
               RANDOM
-            </StyledButton>
-
-            <StyledButton lightBlueColor onClick={getFavorites}>
-              SAVE
             </StyledButton>
           </div>
           <form onSubmit={handleSubmit}>
