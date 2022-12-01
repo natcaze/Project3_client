@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledFilterOption = styled.div`
   background-color: pink;
   width: 20rem;
-  height: 12rem;
+  height: 50rem;
   border-radius: 20px;
   margin-top: 2rem;
 

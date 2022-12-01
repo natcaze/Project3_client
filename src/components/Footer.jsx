@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div>
       <StyledFooter>
-        <p>Created by Gabriela Meirelles and Nathalie Cazemajou</p>
+        {/* <p>Created by Gabriela Meirelles and Nathalie Cazemajou</p> */}
         <Link to="/contact-us">Contact Us </Link>
       </StyledFooter>
     </div>
@@ -18,6 +18,8 @@ const StyledFooter = styled.footer`
   background-color: #37b5ff;
   display: flex;
   align-items: center;
+ /*  position: fixed;
+  bottom: 0; */
 
   p {
     color: white;

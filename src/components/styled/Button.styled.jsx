@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.div`
-  background-color: white;
-  border-radius: 20px;
+export const StyledButton = styled.button`
+  background-color: #f19169;
+  border-radius: 40px;
   border-style: solid;
   color: black;
-  border-width: 0.7rem;
-  width: 15vw;
-  height: 5vh;
+  border-width: 0.4rem;
+  width: 9rem;
+  height: 3rem;
+align-items: center;
+display: inline-flex;
+justify-content: center;
+flex-direction: row;
+
   border-color: ${(props) => {
     if (props.pinkColor) {
       return "#EA047E";
@@ -30,5 +35,6 @@ export const StyledButton = styled.div`
 
   p {
     text-align: center;
+    font-weight: bold;
   }
 `;
