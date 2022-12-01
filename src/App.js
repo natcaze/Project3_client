@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ContactUs from "./pages/ContactUs";
+import EditProfile from "./pages/EditProfile";
+
+import Cocktail from "./pages/Cocktail";
+import CreateCocktail from "./pages/CreateCocktail";
+import EditCocktail from "./pages/EditCocktail";
+
+import Creations from "./pages/Creations";
+import CreateArticle from "./pages/CreateArticle";
+import Articles from "./pages/Articles";
+import EditArticle from "./pages/EditArticle";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/api/generated-cocktail" element={<Cocktail />} />
+        <Route path="/user/create-cocktail" element={<CreateCocktail />} />
+        <Route
+          path="/user/edit-cocktail/:cocktailId"
+          element={<EditCocktail />}
+        />
+
+        <Route path="/article/all-articles" element={<Articles />} />
+        <Route path="/article/create-article" element={<CreateArticle />} />
+        <Route path="/user/edit-article/:articleId" element={<EditArticle />} />
+
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<Signup />} />
+
+        <Route path="/contact-us" element={<ContactUs />} />
+
+        <Route path="/user/edit-profile" element={<EditProfile />} />
+        <Route path="/user/creations" element={<Creations />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
