@@ -44,7 +44,6 @@ const StyledBackground = styled.div`
   span {
     color: white;
     font-size: 1.5rem;
-    margin-left: 0;
   }
 
   div {
