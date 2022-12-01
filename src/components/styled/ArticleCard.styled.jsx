@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const StyledArticleCard = styled.div`
   background-color: ${(props) => {
     if (props.pinkishColor) {
-      return "#ED57A2";
-    } else if (props.purpleColor) {
-      return "#AB55F7";
+      return "#F58D8D";
+    } else if (props.greenColor) {
+      return "#C2D2BA";
     } else if (props.yellowishColor) {
-      return "#FCDE59";
+      return "#EBB231";
     }
   }};
 
@@ -15,11 +15,6 @@ export const StyledArticleCard = styled.div`
   margin-right: 2rem;
   border-radius: 30px;
   width: 20rem;
-
-  h3 {
-    font-size: 25px;
-    text-align: center;
-  }
 
   div {
     display: flex;
@@ -35,10 +30,14 @@ export const StyledArticleCard = styled.div`
   p {
     text-align: justify;
     margin: 2rem;
+    color: #5c434d;
+    font-size: 0.8rem;
   }
 
   ul {
     text-align: justify;
     margin: 2rem;
+    color: #5c434d;
+    font-size: 0.8rem;
   }
 `;

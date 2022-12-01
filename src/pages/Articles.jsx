@@ -2,9 +2,9 @@ import React from "react";
 import crantini from "../assets/crantini.png";
 import sazerac from "../assets/sazerac.png";
 
-import styled from "styled-components";
 import { StyledArticleCard } from "../components/styled/ArticleCard.styled";
 import { StyledSectionArticle } from "../components/styled/SectionArticle.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
 
 function ArticlesPage() {
   return (
@@ -13,7 +13,9 @@ function ArticlesPage() {
         <br />
         <StyledArticleCard pinkishColor>
           <br />
-          <h3>THE SAZERAC</h3>
+          <StyledTitles>
+            <h5>THE SAZERAC</h5>
+          </StyledTitles>
           <div>
             <img src={sazerac} alt="Sazerac" />
           </div>
@@ -41,9 +43,11 @@ function ArticlesPage() {
           <br />
         </StyledArticleCard>
         <br />
-        <StyledArticleCard purpleColor>
+        <StyledArticleCard greenColor>
+          <StyledTitles>
+            <h5>MEET THE CRANBERRY MARTINI</h5>
+          </StyledTitles>
           <br />
-          <h3>MEET THE CRANBERRY MARTINI</h3>
           <div>
             <img src={crantini} alt="Crantini" />
           </div>
@@ -81,7 +85,9 @@ function ArticlesPage() {
         <br />
         <StyledArticleCard yellowishColor>
           <br />
-          <h3>FOUR ESSENTIAL COCKTAIL GLASSES</h3>
+          <StyledTitles>
+            <h5>FOUR ESSENTIAL COCKTAIL GLASSES</h5>
+          </StyledTitles>
           <div>
             <img src={sazerac} alt="Sazerac" />
           </div>

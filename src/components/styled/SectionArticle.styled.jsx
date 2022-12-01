@@ -7,5 +7,5 @@ export const StyledSectionArticle = styled.div`
   flex-direction: column;
   align-items: center;
 
-  background-color: #c9e265;
+  background-color: #fce1e0;
 `;

@@ -4,6 +4,7 @@ export const StyledTitles = styled.h5`
   h5 {
     display: flex;
     font-size: 1.2rem;
+    text-align: center;
     justify-content: center;
     text-transform: uppercase;
     color: ${(props) => {
