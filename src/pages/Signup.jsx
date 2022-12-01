@@ -2,10 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-import { StyledSection } from "../components/styled/Section.styled";
-import { StyledOneCard } from "../components/styled/OneCard.styled";
+import { StyledProfile } from "../components/styled/Card.styled";
 import { StyledButton } from "../components/styled/Button.styled";
-import carroselReto2 from "../assets/carroselReto2.png";
 import styled from "styled-components";
 
 function Signup(props) {
@@ -36,52 +34,64 @@ function Signup(props) {
   };
 
   return (
-    <div>
-      <StyledSection purpleColor>
-        <StyledOneCard pinkColor>
-          <div>
-            <form onSubmit={handleSignupSubmit}>
+    <StyledBackground>
+      <div>
+        <StyledProfile lightBlueColor>
+          <form onSubmit={handleSignupSubmit}>
+            <div>
               <label>NAME</label>
+              <br />
               <input
                 type="text"
                 name="name"
                 value={name}
                 onChange={handleName}
               />
-              <label>EMAIL</label>
+            </div>
+            <div>
+              <label>EMAIL</label> <br />
               <input
                 type="email"
                 name="email"
                 value={email}
                 onChange={handleEmail}
               />
-
-              <label>PASSWORD</label>
+            </div>
+            <div>
+              <label>PASSWORD</label> <br />
               <input
                 type="password"
                 name="password"
                 value={password}
                 onChange={handlePassword}
               />
-              <br />
-              <StyledButton blueColor type="submit">
-                SIGN UP
-              </StyledButton>
-            </form>
+            </div>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <br />
+            <StyledButton blueColor type="submit">
+              SIGN UP
+            </StyledButton>
+            <br />
+            <br />
+          </form>
 
-            <p>ALREADY HAVE AN ACCOUNT?</p>
-            <Link to={"/auth/login"}>LOGIN</Link>
-          </div>
-        </StyledOneCard>
-        <StyledImg src={carroselReto2} alt="courossel" />
-      </StyledSection>
-    </div>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+          <p>ALREADY HAVE AN ACCOUNT?</p>
+
+          <Link to={"/auth/login"}>LOGIN</Link>
+        </StyledProfile>
+        <br />
+      </div>
+    </StyledBackground>
   );
 }
-const StyledImg = styled.img`
-  height: 84vh;
-  width: 22vw;
+
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #ecc5fb;
+  text-align: center;
+  display: grid;
 `;
+
 export default Signup;

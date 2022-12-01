@@ -3,10 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
 
-import { StyledSection } from "../components/styled/Section.styled";
-import { StyledOneCard } from "../components/styled/OneCard.styled";
-/* import { StyledButton } from "../components/styled/Button.styled"; */
-import carroselReto from "../assets/carroselReto.png";
+import { StyledProfile } from "../components/styled/Card.styled";
+import { StyledButton } from "../components/styled/Button.styled";
 import styled from "styled-components";
 
 function Login(props) {
@@ -40,11 +38,12 @@ function Login(props) {
   };
 
   return (
-    <div>
-      <StyledSection yellowColor>
-        <StyledOneCard orangeColor>
+    <StyledBackground>
+      <div>
+        <StyledProfile lightBlueColor>
           <form onSubmit={handleLoginSubmit}>
             <label>EMAIL</label>
+            <br />
             <input
               type="email"
               name="email"
@@ -53,6 +52,7 @@ function Login(props) {
             />
 
             <label>PASSWORD</label>
+            <br />
             <input
               type="password"
               name="password"
@@ -60,25 +60,30 @@ function Login(props) {
               onChange={handlePassword}
             />
             <br />
-            <button greenColor type="submit">
+            <br />
+            <StyledButton greenColor type="submit">
               LOGIN
-            </button>
+            </StyledButton>
+            <br />
             <br />
           </form>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
           <p>DON'T HAVE AN ACCOUNT YET?</p>
           <Link to={"/auth/signup"}>SIGN UP</Link>
-        </StyledOneCard>
-        <StyledImg src={carroselReto} alt="courossel" />
-      </StyledSection>
-    </div>
+        </StyledProfile>
+        <br />
+        <br />
+      </div>
+    </StyledBackground>
   );
 }
 
-const StyledImg = styled.img`
-  height: 84vh;
-  width: 22vw;
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #ff87ca;
+  text-align: center;
+  display: grid;
 `;
 
 export default Login;

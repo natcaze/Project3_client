@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { StyledSection } from "../components/styled/Section.styled";
+
+import { StyledProfile } from "../components/styled/Card.styled";
+import { StyledButton } from "../components/styled/Button.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
+import styled from "styled-components";
 
 function EditCocktail() {
   const [cocktailName, setCocktailName] = useState("");
@@ -77,45 +81,67 @@ function EditCocktail() {
   };
 
   return (
-    <div>
-      <StyledSection blueColor>
-        <h3>EDIT COCKTAIL</h3>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="cocktailName">COCKTAIL NAME</label>
-          <input
-            type="text"
-            name="cocktailName"
-            value={cocktailName}
-            onChange={handleCocktailName}
-          />
-          <label htmlFor="description">DESCRIPTION</label>
-          <input
-            type="text"
-            name="description"
-            value={description}
-            onChange={handleDescription}
-          />
-          <label htmlFor="ingredients">INGREDIENTS</label>
-          <input
-            type="text"
-            name="ingredients"
-            value={ingredients}
-            onChange={handleIngredients}
-          />
-          <label htmlFor="image">IMAGE</label>
-          <input
-            type="text"
-            name="image"
-            value={image}
-            onChange={handleImage}
-          />
-          <button type="submit">EDIT COCKTAIL</button>
-        </form>
-
-        <button onClick={deleteCocktail}>DELETE COCKTAIL</button>
-      </StyledSection>
-    </div>
+    <StyledBackground>
+      <div>
+        <StyledTitles greenColor>
+          <h5>EDIT COCKTAIL</h5>
+        </StyledTitles>
+        <StyledProfile yellowishColor>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="cocktailName">COCKTAIL NAME</label>
+            <br />
+            <input
+              type="text"
+              name="cocktailName"
+              value={cocktailName}
+              onChange={handleCocktailName}
+            />
+            <label htmlFor="description">DESCRIPTION</label>
+            <br />
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={handleDescription}
+            />
+            <label htmlFor="ingredients">INGREDIENTS</label>
+            <br />
+            <input
+              type="text"
+              name="ingredients"
+              value={ingredients}
+              onChange={handleIngredients}
+            />
+            <label htmlFor="image">IMAGE</label>
+            <br />
+            <input
+              type="text"
+              name="image"
+              value={image}
+              onChange={handleImage}
+            />
+            <br />
+            <StyledButton yellowColor type="submit">
+              EDIT COCKTAIL
+            </StyledButton>
+          </form>
+          <br />
+          <br />
+          <StyledButton purpleColor onClick={deleteCocktail}>
+            DELETE COCKTAIL
+          </StyledButton>
+        </StyledProfile>
+      </div>
+      <br />
+    </StyledBackground>
   );
 }
+
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #ebb241;
+  text-align: center;
+  display: grid;
+`;
 
 export default EditCocktail;

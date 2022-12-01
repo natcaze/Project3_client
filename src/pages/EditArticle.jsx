@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { StyledProfile } from "../components/styled/Card.styled";
+import { StyledButton } from "../components/styled/Button.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
+import styled from "styled-components";
+
 function CreateArticle() {
   const [title, setTitle] = useState("");
   const [recipe, setRecipe] = useState("");
@@ -75,31 +80,67 @@ function CreateArticle() {
   };
 
   return (
-    <div>
-      <h3>EDIT ARTICLE</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title"> TITLE </label>
-        <input type="text" name="title" value={title} onChange={handleTitle} />
-        <label htmlFor="recipe"> RECIPE </label>
-        <input
-          type="text"
-          name="recipe"
-          value={recipe}
-          onChange={handleRecipe}
-        />
-        <label htmlFor="description"> DESCRIPTION </label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={handleDescription}
-        />
-        <label htmlFor="img"> IMAGE </label>
-        <input type="text" name="img" value={img} onChange={handleImage} />
-      </form>
-      <button onClick={deleteArticle}>DELETE COCKTAIL</button>
-    </div>
+    <StyledBackground>
+      <div>
+        <StyledTitles orangeColor>
+          <h5>EDIT ARTICLE</h5>
+        </StyledTitles>
+        <StyledProfile lightBlueColor>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="title"> TITLE </label>
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={handleTitle}
+              />
+            </div>
+            <div>
+              <label htmlFor="recipe"> RECIPE </label>
+              <input
+                type="text"
+                name="recipe"
+                value={recipe}
+                onChange={handleRecipe}
+              />
+            </div>
+            <div>
+              <label htmlFor="description"> DESCRIPTION </label>
+              <input
+                type="text"
+                name="description"
+                value={description}
+                onChange={handleDescription}
+              />
+            </div>
+            <div>
+              <label htmlFor="img"> IMAGE </label>
+              <input
+                type="text"
+                name="img"
+                value={img}
+                onChange={handleImage}
+              />
+            </div>
+          </form>
+          <br />
+          <StyledButton pinkColor onClick={deleteArticle}>
+            DELETE ARTICLE
+          </StyledButton>
+        </StyledProfile>
+        <br />
+        <br />
+      </div>
+    </StyledBackground>
   );
 }
+
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #b6e2a1;
+  text-align: center;
+  display: grid;
+`;
 
 export default CreateArticle;

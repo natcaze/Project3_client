@@ -19,14 +19,13 @@ const StyledFooter = styled.footer`
   align-items: center;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 2rem;
-  max-width: 100vw;
 
   a {
     text-decoration: none;
     color: white;
     margin-left: 10px;
     font-size: 0.8rem;
+    padding-right: 2rem;
   }
   a:hover,
   .active {

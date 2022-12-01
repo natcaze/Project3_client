@@ -3,8 +3,9 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/auth.context";
 
+import { StyledProfile } from "../components/styled/Card.styled";
 import { StyledButton } from "../components/styled/Button.styled";
-import { StyledSectionArticle } from "../components/styled/SectionArticle.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
 import styled from "styled-components";
 
 function EditProfile() {
@@ -56,33 +57,48 @@ function EditProfile() {
   };
 
   return (
-    <StyledProfile>
-      <StyledSectionArticle>
-        <h5>EDIT PROFILE</h5>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">NAME:</label>
-          <input type="text" name="name" value={name} onChange={handleName} />
-          <label htmlFor="email">EMAIL:</label>
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
-          <br />
-
-          <StyledButton purpleColor type="submit">
-            SAVE
-          </StyledButton>
-        </form>
-        <Link to={"/"}>DISCARD CHANGES</Link>
-      </StyledSectionArticle>
-    </StyledProfile>
+    <StyledBackground>
+      <div>
+        <StyledTitles bronwColor>
+          <h5>EDIT PROFILE</h5>
+        </StyledTitles>
+        <StyledProfile greenColor>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="name">NAME</label>
+            <br />
+            <input type="text" name="name" value={name} onChange={handleName} />
+            <label htmlFor="email">EMAIL</label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+            <br />
+            <br />
+            <br />
+            <StyledButton purpleColor type="submit">
+              SAVE
+            </StyledButton>
+            <br />
+            <br />
+            <br />
+            <Link to={"/"}>DISCARD CHANGES</Link>
+          </form>
+        </StyledProfile>
+        <br />
+        <br />
+      </div>
+    </StyledBackground>
   );
 }
 
-const StyledProfile = styled.div`
-  height: 84vh;
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #cfdfea;
+  text-align: center;
+  display: grid;
 `;
 
 export default EditProfile;

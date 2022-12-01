@@ -49,6 +49,7 @@ const StyledNavBar = styled.nav`
     text-decoration: none;
     color: white;
     margin-left: 10px;
+    font-size: 0.65rem;
   }
   a:hover,
   .active {

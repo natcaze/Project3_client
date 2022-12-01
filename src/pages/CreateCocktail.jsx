@@ -2,7 +2,11 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { StyledSection } from "../components/styled/Section.styled";
+
+import { StyledProfile } from "../components/styled/Card.styled";
+import { StyledButton } from "../components/styled/Button.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
+import styled from "styled-components";
 
 function CreateCocktail() {
   const [cocktailName, setCocktailName] = useState("");
@@ -40,43 +44,66 @@ function CreateCocktail() {
   };
 
   return (
-    <div>
-      <StyledSection greenColor>
-        <h3>CREATE YOUR COCKTAIL</h3>
-        <form onSubmit={handleSubmit}>
-          <label>COCKTAIL NAME</label>
-          <input
-            type="text"
-            name="cocktailName"
-            value={cocktailName}
-            onChange={handleCocktailName}
-          />
-          <label>DESCRIPTION</label>
-          <input
-            type="text"
-            name="description"
-            value={description}
-            onChange={handleDescription}
-          />
-          <label>INGREDIENTS</label>
-          <input
-            type="text"
-            name="ingredients"
-            value={ingredients}
-            onChange={handleIngredients}
-          />
-          <label>IMAGE</label>
-          <input
-            type="text"
-            name="image"
-            value={image}
-            onChange={handleImage}
-          />
-          <button type="submit">ADD</button>
-        </form>
-      </StyledSection>
-    </div>
+    <StyledBackground>
+      <div>
+        <StyledTitles bronwColor>
+          <h5>CREATE YOUR COCKTAIL</h5>
+        </StyledTitles>
+        <StyledProfile greenColor>
+          <form onSubmit={handleSubmit}>
+            <label>COCKTAIL NAME</label>
+            <br />
+            <input
+              type="text"
+              name="cocktailName"
+              value={cocktailName}
+              onChange={handleCocktailName}
+            />
+            <label>DESCRIPTION</label>
+            <br />
+            <input
+              type="text"
+              name="description"
+              value={description}
+              onChange={handleDescription}
+            />
+            <label>INGREDIENTS</label>
+            <br />
+            <input
+              type="text"
+              name="ingredients"
+              value={ingredients}
+              onChange={handleIngredients}
+            />
+            <label>IMAGE</label>
+            <br />
+            <input
+              type="text"
+              name="image"
+              value={image}
+              onChange={handleImage}
+            />
+            <br />
+            <br />
+            <br />
+            <StyledButton pinkColor type="submit">
+              ADD
+            </StyledButton>
+            <br />
+          </form>
+        </StyledProfile>
+        <br />
+        <br />
+      </div>
+    </StyledBackground>
   );
 }
+
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #cfdfea;
+  text-align: center;
+  display: grid;
+`;
 
 export default CreateCocktail;

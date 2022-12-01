@@ -4,7 +4,9 @@ import axios from "axios";
 import { useState } from "react";
 import { AuthContext } from "../contexts/auth.context";
 import { Link } from "react-router-dom";
-import { StyledSection } from "../components/styled/Section.styled";
+import { StyledTitles } from "../components/styled/Titles.styled";
+import { StyledProfile } from "../components/styled/Card.styled";
+import styled from "styled-components";
 
 function Creations() {
   const [creations, setCreations] = useState([]);
@@ -51,46 +53,61 @@ function Creations() {
   }, [user]);
 
   return (
-    <div>
-      <StyledSection beigeColor>
-        <h3>MY CREATIONS</h3>
-        {/*       <form action="/user/create-cocktail">
-          <button type="submit">ADD COCKTAIL</button>
-        </form>
-        <form action="/article/create-article">
-          <button type="submit">ADD ARTICLE</button>
-        </form> */}
-        <Link to={`/user/create-cocktail`}>ADD COCKTAIL</Link>
-        <Link to={`/article/create-article`}>ADD ARTICLE</Link>
+    <StyledBackground>
+      <div>
+        <StyledTitles orangeColor>
+          <h5>MY CREATIONS</h5>
+        </StyledTitles>
+        <div>
+          <Link to={`/user/create-cocktail`}>ADD COCKTAIL</Link>
+        </div>
+        <div>
+          <Link to={`/article/create-article`}>ADD ARTICLE</Link>
+        </div>
 
-        {creations &&
-          creations.map((creation) => {
-            return (
-              <div key={creation._id}>
-                <img src={creation.strDrinkThumb} alt="default" />
-                <p>{creation.strDrink}</p>
-
-                <Link to={`/user/edit-cocktail/${creation._id}`}>EDIT</Link>
-              </div>
-            );
-          })}
-
-        {creationsArticle &&
-          creationsArticle.map((creationArticle) => {
-            return (
-              <div key={creationArticle._id}>
-                <img src={creationArticle.img} alt="default" />
-                <p>{creationArticle.title}</p>
-
-                <Link to={`/user/edit-article/${creationArticle._id}`}>
-                  EDIT
-                </Link>
-              </div>
-            );
-          })}
-      </StyledSection>
-    </div>
+        <StyledProfile greenColor>
+          {creations &&
+            creations.map((creation) => {
+              return (
+                <div key={creation._id}>
+                  <img src={creation.strDrinkThumb} alt="default" />
+                  <hr />
+                  <p>{creation.strDrink}</p>
+                  <hr />
+                  <Link to={`/user/edit-cocktail/${creation._id}`}>EDIT</Link>
+                </div>
+              );
+            })}
+        </StyledProfile>
+        <br />
+        <StyledProfile yellowishColor>
+          {creationsArticle &&
+            creationsArticle.map((creationArticle) => {
+              return (
+                <div key={creationArticle._id}>
+                  <img src={creationArticle.img} alt="default" />
+                  <hr />
+                  <p>{creationArticle.title}</p>
+                  <hr />
+                  <Link to={`/user/edit-article/${creationArticle._id}`}>
+                    EDIT
+                  </Link>
+                </div>
+              );
+            })}
+        </StyledProfile>
+      </div>
+      <br />
+      <br />
+    </StyledBackground>
   );
 }
+
+const StyledBackground = styled.div`
+  width: 100vw;
+  background-color: #fce1e0;
+  text-align: center;
+  display: grid;
+`;
 
 export default Creations;
